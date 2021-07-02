@@ -1,0 +1,27 @@
+{
+  "name": "trainning",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "ejs": "^3.1.5",
+    "elastic-apm-node": "^3.16.0",
+    "express": "^4.17.1",
+    "os": "^0.1.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leolegends/template-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leolegends/template-server/issues"
+  },
+  "homepage": "https://github.com/leolegends/template-server#readme"
+}
