@@ -1,0 +1,43 @@
+metricbeat.modules:
+- module: docker
+  metricsets: ["container", "cpu", "diskio", "event", "healthcheck", "image", "info", "memory", "network"]
+  hosts: ["unix:///var/run/docker.sock"]
+  period: 10s
+
+- module: elasticsearch
+  metricsets: ["node", "node_stats", "cluster_stats", "index"]
+  period: 10s
+  hosts: ["elasticsearch:9200"]  
+
+- module: system
+  metricsets:
+    - core
+    - cpu
+    - load
+    - diskio
+    - filesystem
+    - fsstat
+    - memory
+    - network
+    - process
+    - socket
+  enabled: true
+  period: 10s
+  processes: ['.*']
+  cpu_ticks: true
+  process.cgroups.enabled: true
+
+
+# - module: mysql
+#   metricsets: ["status"]
+#   hosts: ["tcp(gestor.cqz90u2tvymu.us-east-2.rds.amazonaws.com:3306)/"]
+#   username: dev_leonardo
+#   password: sp_VFZ122Z
+
+output.elasticsearch:
+  hosts: ["elasticsearch:9200"]
+
+setup.kibana:
+  host: "kibana:5601"
+
+setup.dashboards.enabled: true
